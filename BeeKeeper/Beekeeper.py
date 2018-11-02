@@ -1,5 +1,5 @@
 #Global vowels
-vs = ['aa', 'ee', 'ii', 'oo', 'uu', 'yy']
+doubleVowels = ['aa', 'ee', 'ii', 'oo', 'uu', 'yy']
 
 def main():
 
@@ -10,17 +10,18 @@ def main():
     #List to store the words
     listOfWords = []
 
-    mostRepeatVowels = "None"
+    mostRepeatVowels = ""
 
     while(inputN != 0):
         for i in range(inputN):
-            word = input()
-            listOfWords.append(word)
+            newWord = str(input())
+            listOfWords.append(newWord)
 
-        biggest = 0
+        biggest = -1
         for word in listOfWords:
-            count = sum([word.count(substr) for substr in vs])
-            if(count >= biggest):
+            #Gets the sum of how many doubleVowels are in the list
+            count = sum([word.count(substr) for substr in doubleVowels])
+            if(count > biggest):
                biggest = count
                mostRepeatVowels = word
 
@@ -33,8 +34,6 @@ def main():
         #Get antoher case
         inputN = input()
         inputN = int(inputN)
-
-
  
 #Program runs here
 main()
